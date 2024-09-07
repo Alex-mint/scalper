@@ -31,7 +31,7 @@
                                 new TradingView.widget({
                                     "autosize": true,
                                     "symbol": symbol,
-                                    "interval": "15",
+                                    "interval": "1",
                                     "timezone": "Etc/UTC",
                                     "theme": "dark",
                                     "style": "1",
@@ -70,7 +70,7 @@
                                 new TradingView.widget({
                                     "autosize": true,
                                     "symbol": symbol,
-                                    "interval": "D",
+                                    "interval": "5",
                                     "timezone": "Etc/UTC",
                                     "theme": "dark",
                                     "style": "1",
@@ -124,42 +124,83 @@
             </div>
             
             <div class="text-box">
-                
-                <label class="checkbox-container">
-                    <input type="checkbox" id="vol-1d" name="checkbox1">
-                    <span class="checkmark"></span>
-                    Повышеные объёмы 1Д
-                </label>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="vol-15m" name="checkbox2">
-                    <span class="checkmark"></span>
-                    Повышеные объёмы 15м
-                </label>
+                <p>Основания</p>
+                <select id="basis_1">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_2">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_3">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_4">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
             </div>
             <div class="text-box">
-                <select id="mood">
-                    <option value="боевой">Настрой боевой</option>
-                    <option value="Грусно">Грусно</option>
-                    <option value="Устал">Устал</option>
-                    <option value="Опатия">Опатия</option>
+                <p>Паттерн</p>
+                <select id="basis_4">
+                    <option value="" disabled selected>Выбери паттерн</option>
+                    <optgroup label="Основные основания">
+                        <option value="Пробой уровеня">Пробой уровеня</option>
+                        <option value="Пробой наклонки">Пробой наклонки</option>
+                        <option value="Подхват на откате">Подхват на откате</option>
+                        <option value="Сбор волатильности">Сбор волатильности</option>
+                        <option value="Отскок от плотности">Отскок от плотности</option>
+                        <option value="Плотность на уровне">Плотность на уровне</option>
+                        <option value="Ложный пробой с плотностью">Ложный пробой с плотностью</option>
+                        <option value="Вход от плотности после ускорения">Вход от плотности после ускорения</option>
+                        <option value="Ловля ножа по тренду">Ловля ножа по тренду</option>
+                    </optgroup>
                 </select>
-                <label class="checkbox-container">
-                    <input type="checkbox" id="baga" name="checkbox2">
-                    <span class="checkmark"></span>
-                    По стратегии Бага
-                </label>
-                <select id="strategy">
-                    <option value="отскок от зона">Стратегия отскок от зона</option>
-                    <option value="Отскок от уровня">Отскок от уровня</option>
-                    <option value="Отскок от наклонки">Отскок от наклонки</option>
-                    <option value="Подхват на откате">Подхват на откате</option>
-                    <option value="Пробой уровня">Пробой уровня</option>
-                    <option value="Пробой наклонки">Пробой наклонки</option>
-                    <option value="Слом структуры">Слом структуры</option>
-                    <option value="Ножи">Ножи</option>
-                    <option value="Обратка">Обратка</option>
-                    <option value="Другая">Другая</option>
-                </select>
+                <button id="btnPattern">Смотреть паттерн</button>
+            </div>
+            <div class="text-box">    
                 
                 <input id="url" type="text" placeholder="URL">
                 <input id="income%" type="text" placeholder="% Доход">
