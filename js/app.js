@@ -16,6 +16,52 @@ const params = new URLSearchParams(window.location.search);
 const param1 = params.get("param1"); // Получаем значение параметра "param1"
 const param2 = params.get("param2"); // Получаем значение параметра "param2"
 
+
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("btnPattern");
+const span = document.getElementsByClassName("close")[0];
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const patternSelect = document.getElementById("pattern");
+
+// Функция для загрузки JSON данных
+function loadPatternDescriptions(callback) {
+    fetch('patterns.json')
+        .then(response => response.json())
+        .then(data => callback(data))
+        .catch(error => console.error('Ошибка загрузки JSON:', error));
+}
+
+// Когда пользователь нажимает на кнопку, открывается модальное окно
+btn.onclick = function() {
+    const selectedPattern = patternSelect.value;
+
+    if (selectedPattern) {
+        console.log(111)
+        loadPatternDescriptions(function(data) {
+            const selectedDescription = data[selectedPattern];
+            modalTitle.textContent = selectedPattern; // Устанавливаем заголовок
+            modalDescription.innerHTML = selectedDescription; // Устанавливаем описание как HTML
+            console.log(selectedDescription)
+            modal.style.display = "block"; // Показываем модальное окно
+        });
+    } else {
+        alert("Пожалуйста, выберите паттерн."); // Сообщение, если паттерн не выбран
+    }
+}
+
+// Когда пользователь нажимает на крестик (x), закрывается модальное окно
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Когда пользователь нажимает где-то вне модального окна, оно также закрывается
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 const GetSymbol = (symbol) => {
     //logo.textContent = symbol
     getTradeCount(symbol)

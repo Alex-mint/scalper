@@ -31,9 +31,7 @@ const saveText = (positionData) => {
     
     const text = `
 
-deposito:: 100
-risk:: 3
-stop:: 22 
+
 
 
 #### ${formattedDateTime}

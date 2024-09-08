@@ -9,22 +9,8 @@
 <body>
     <!-- <nav>
         <span id="logo">Я верю в тебя!</span>
-        <input type="text" placeholder="Pub-API">
-        <input type="text" placeholder="Secret-API"> 
         
     </nav> -->
-    <div id="myModal" class="modal">
-
-        <!-- Контент модального окна -->
-        <div class="modal-content">
-            <span class="close" id="closeModalBtn">&times;</span>
-            <p id="haveKey">Введите данные:</p>
-            <input type="text" id="modalInput" class="modal-input" placeholder="Введите ключ">
-            <button class="save-btn" id="saveBtn">Сохранить</button>
-            <p><a href="https://min-api.cryptocompare.com/" >получить ключ</a></p>
-        </div>
-    
-    </div>
 
     <div class="content">
         <div class="chart-container">
@@ -45,7 +31,7 @@
                                 new TradingView.widget({
                                     "autosize": true,
                                     "symbol": symbol,
-                                    "interval": "15",
+                                    "interval": "1",
                                     "timezone": "Etc/UTC",
                                     "theme": "dark",
                                     "style": "1",
@@ -84,7 +70,7 @@
                                 new TradingView.widget({
                                     "autosize": true,
                                     "symbol": symbol,
-                                    "interval": "D",
+                                    "interval": "5",
                                     "timezone": "Etc/UTC",
                                     "theme": "dark",
                                     "style": "1",
@@ -119,39 +105,130 @@
         </div>
         
         <div class="sidebar">
-            <div class="text-box table-container">
-                <div class="table-header">
-                    
-                    <div id="selectedCoint" class="cell selectCoint">BTCUSDT</div>
-                    <div id="correl" class="cell">Кор 12h: 1</div>
-                    <div class="cell cursor"><span id="refreshData">⚡</span><span id="openModalBtn">⚙️</span></div>
-                    
-                    
-                    
-                </div>
-                <div class="table-content">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="cursor" id="sortTicker">Пара ↕️</th>
-                                <th class="cursor" id="sortDeals">Сделки ↕️</th>
-                                <th class="cursor" id="sortTurnover">Оборот ↕️</th>
-                                <th class="cursor" id="sortPriceChange">Цена % ↕️</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cryptoTable">
-                            <!-- Данные будут загружены и вставлены сюда -->
-                        </tbody>
-                    </table>
-                </div>
+            <div class="text-box">
+                <input id="symbolInput" type="text" placeholder="BTCUSDT">
+                <button onclick="GetSymbol(document.getElementById('symbolInput').value)" id="getSymbol">Отправить</button>
+            </div>
+            <div class="text-box">
+                <input id="deposit" type="text" placeholder="Депозит">
+                <input id="risk" type="text" placeholder="% Риска">
+                <input id="stopLoss" type="text" placeholder="% Stop Loss">
+                <button id="btnStopLoss">Посчитать</button>
+                <p id="positionSize">Размер ставки: 0</p>
+            </div>
+            <div class="text-box">
+                <p>Trades</p>
+                <p id="btcTrades">BTCUSDT: 0</p>
+                <p id="cointTrades">Coint: 0</p>
+                <p id="correl">COREL: 0</p>
             </div>
             
+            <div class="text-box">
+                <p>Основания</p>
+                <select id="basis_1">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_2">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_3">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+                <select id="basis_4">
+                    <option value="" disabled selected>Выбери основание</option>
+                    <optgroup label="Основные основания">
+                        <option value="Уровень">Уровень</option>
+                        <option value="Патерн">Патерн</option>
+                        <option value="Плотность">Плотность</option>
+                        <option value="Объём">Объём</option>
+                    </optgroup>
+                    <optgroup label="Не основные основания">
+                        <option value="Скорость ленты">Скорость ленты</option>
+                        <option value="Робот">Робот</option>
+                        <option value="Повадырь">Повадырь</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="text-box">
+                <p>Паттерн</p>
+                <select id="pattern">
+                    <option value="" disabled selected>Выбери паттерн</option>
+                    <optgroup label="Основные основания">
+                        <option value="Пробой уровня">Пробой уровеня</option>
+                        <option value="Пробой наклонки">Пробой наклонки</option>
+                        <option value="Подхват на откате">Подхват на откате</option>
+                        <option value="Сбор волатильности">Сбор волатильности</option>
+                        <option value="Отскок от плотности">Отскок от плотности</option>
+                        <option value="Плотность на уровне">Плотность на уровне</option>
+                        <option value="Ложный пробой с плотностью">Ложный пробой с плотностью</option>
+                        <option value="Вход от плотности после ускорения">Вход от плотности после ускорения</option>
+                        <option value="Ловля ножа по тренду">Ловля ножа по тренду</option>
+                    </optgroup>
+                </select>
+                <button id="btnPattern">Смотреть паттерн</button>
+                <!-- Модальное окно -->
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="modalTitle"></h2>
+                        <div id="modalDescription"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-box">    
+                
+                <input id="url" type="text" placeholder="URL">
+                <input id="income%" type="text" placeholder="% Доход">
+                <input id="income$" type="text" placeholder="$ Доход">
+                <p><textarea id="comment" placeholder="Коментарий"></textarea></p>
+                <p><textarea id="myError" placeholder="Ошибки"></textarea></p>
+                <p><textarea id="conclusion" placeholder="Вывод"></textarea></p>
+                <button id="btnSave">Сохранить</button>
+            </div>
+            <!-- <div class="text-box">
+                <button id="btnSave" onclick="openNewPage('file:///C:/Users/soyvi/Downloads/Visual%20Code/Helper/new/index.html')">Открыть новую вкладку</button>
+                <button id="btnSave" onclick="openNewPage('TV')">Открыть в TradingView</button>
+            </div> -->
         </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.3.1/math.min.js"></script>
-    <script src="js/modal.js"></script>
+    <script src="js/saveFiles.js"></script>
     <script src="js/corelApp.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
