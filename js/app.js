@@ -91,12 +91,12 @@ btnSave.onclick = () => {
         myError: document.getElementById('myError').value,
         conclusion: document.getElementById('conclusion').value,
         comment: document.getElementById('comment').value,
-        strategy: document.getElementById('strategy').value,
-        mood: document.getElementById('mood').value,
-        vol_1d: document.getElementById('vol-1d').checked,
-        vol_15m: document.getElementById('vol-15m').checked,
-        corel: document.getElementById('correl').textContent,
-        baga: document.getElementById('baga').checked
+        basis_1: document.getElementById('basis_1').value,
+        basis_2: document.getElementById('basis_2').value,
+        basis_3: document.getElementById('basis_3').value,
+        basis_4: document.getElementById('basis_4').value,
+        pattern: document.getElementById('pattern').value,
+        corel: document.getElementById('correl').textContent
     }
     //console.log(positionData)
     saveText(positionData)

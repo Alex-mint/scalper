@@ -38,17 +38,15 @@ const saveText = (positionData) => {
 
 #### Монета: ${positionData.symbol}
 
-### По стратегии Бага: ${positionData.baga}
-### Стратегия: ${positionData.strategy}
+### Основания: ${positionData.basis_1}, ${positionData.basis_2}, ${positionData.basis_3}, ${positionData.basis_4}
+### Паттерн: ${positionData.pattern}
 
 ### Число сделок
 ${positionData.btc}
 ${positionData.coint}
 
 ${positionData.corel}
-Повышенные объёмы 1Д:  ${positionData.vol_1d}
-Повышенные объёмы 15м:  ${positionData.vol_15m}
-Настрой:  ${positionData.mood}
+
 Доход в %:  ${positionData.incomePro}
 Доход в $:  ${positionData.incomeDol}
 Url:  ${positionData.url}
@@ -62,19 +60,16 @@ ${positionData.conclusion}
 -------------------
 
 symbol:: ${positionData.symbol}
-strategy:: ${positionData.strategy}
+basis:: ${positionData.basis_1}, ${positionData.basis_2}, ${positionData.basis_3}, ${positionData.basis_4}
+pattern:: ${positionData.pattern}
 btc:: ${positionData.btc}
 coint:: ${positionData.coint}
 corel:: ${positionData.corel}
-vol_1d:: ${positionData.vol_1d}
-vol_15m:: ${positionData.vol_15m}
-mood:: ${positionData.mood}
 incomePro:: ${positionData.incomePro}
 incomeDol:: ${positionData.incomeDol}
 url:: ${positionData.url}
 comment:: ${positionData.comment}
 conclusion:: ${positionData.conclusion}
-baga:: ${positionData.baga}
 myError:: ${positionData.myError}
 `
 
